@@ -6,6 +6,7 @@ const fs = require("fs");
 // USE
 app.use(cors());
 app.use(express.json());
+app.use(express.static("client"));
 
 // GET REQUEST
 // send all data from json file as list
@@ -15,7 +16,7 @@ app.get("/all", (req, res) => {
 
 // filtered data by a licenc number and send the first item as an object
 app.get("/licence/:licenceNum", (req, res) => {
-  const licenc = Number(req.params.licenceNum);
+  const licenc = req.params.licenceNum;
   const searchResult = allData.filter((item) => {
     return item.carLicence === licenc;
   });
@@ -26,6 +27,7 @@ app.get("/licence/:licenceNum", (req, res) => {
 // receive new object add to corrent list and rewrite jsone file
 app.post("/addNew", (req, res) => {
   allData.push(req.body);
+  console.log(req.body);
   writeToJson("./cars.json", allData);
   res.send({ status: "success" });
 });

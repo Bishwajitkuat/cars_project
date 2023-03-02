@@ -2,9 +2,10 @@ const table = document.querySelector("table");
 const form = document.querySelector("form");
 const reset = document.querySelector("#reset");
 const searchBtn = document.querySelector("#search_btn");
+const btnAddCar = document.querySelector("#add_car");
 const resultTxt = document.querySelector("#result_txt");
 
-const cars = [];
+// const cars = [];
 
 function Car(licence, maker, model, owner, price, color) {
   this.carLicence = licence;
@@ -15,9 +16,7 @@ function Car(licence, maker, model, owner, price, color) {
   this.carColor = color;
 }
 
-const car1 = new Car("li", "mk", "mode", "ow", "pri", "col");
-
-function addCar() {
+function makeCarObj() {
   const licenceInput = document.querySelector("#licence").value;
   const makerInput = document.querySelector("#maker").value;
   const modelInput = document.querySelector("#model").value;
@@ -32,6 +31,8 @@ function addCar() {
     priceInput,
     colorInput
   );
+  console.log(newCar);
+  return newCar;
 }
 function renderCar(car) {
   const html = `        
@@ -79,10 +80,33 @@ async function getCarbyKeyValue(url, key, value) {
     resultTxt.textContent = "Did not find the car. Try again!!!!";
   }
 }
+// fetch post new car objects to server
+async function sendNewData(url = "", data = {}) {
+  const response = await fetch(url, {
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    referrerPolicy: "no-referrer",
+    body: JSON.stringify(data),
+  });
+  return response.json();
+}
 
 // all data from database and render
 getAllData("http://localhost:3000/all");
 
-document.querySelector("#add_car").addEventListener("click", addCar);
+// send new car object to server
+function addCar() {
+  const newCar = makeCarObj();
+  console.log("inside addCar:", newCar);
+  const postUrl = "http://localhost:3000/addNew";
+  sendNewData(postUrl, newCar).then((res) => console.log(res));
+}
+
+// Event listener and hander
+btnAddCar.addEventListener("click", addCar);
 reset.addEventListener("click", () => form.reset());
 searchBtn.addEventListener("click", getCarByLicence);
