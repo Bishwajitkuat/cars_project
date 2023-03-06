@@ -27,8 +27,8 @@ app.get("/licence/:licenceNum", (req, res) => {
 // receive new object add to corrent list and rewrite jsone file
 app.post("/addNew", (req, res) => {
   const licence = req.body.carLicence;
-  const alreadyExits = allData.filter((item) => item.carLicence === licence);
-  if (alreadyExits.length) {
+  const alreadyExist = allData.filter((item) => item.carLicence === licence);
+  if (alreadyExist.length) {
     res.send({
       status: `Licence number ${licence} already exits in the database! New data has not been added!`,
     });
