@@ -10,6 +10,7 @@ body {
 }
 
 .marWidth {
+  width: 100vw;
   margin: 0 auto;
   max-width: 1200px;
   margin-top: 3rem;
@@ -21,6 +22,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-around;
+  gap: 1rem;
 }
 h1 {
   font-size: 3rem;
@@ -31,7 +33,7 @@ header img {
   border-radius: 50%;
 }
 main {
-  max-width: 1200px;
+  max-width: 100%;
   padding: 2rem;
   display: grid;
   grid-template-columns: 2fr 4fr;
@@ -58,14 +60,6 @@ section {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-}
-
-.databases {
-  border: 0.01rem solid gray;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
 }
 
 label {
@@ -106,6 +100,14 @@ button {
   display: flex;
   gap: 1rem;
 }
+.databases {
+  border: 0.01rem solid gray;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
 .search {
   padding: 2rem;
   border: 0.01rem solid gray;
@@ -126,12 +128,10 @@ button {
 
 .searchResult ul {
   margin: 16px 0;
-  padding: 1rem;
-  padding: 0;
+  padding: 5px;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   justify-content: center;
 }
 
@@ -150,9 +150,13 @@ tr td,
 tr th {
   padding: 0.5rem 0;
 }
+tr th {
+  font-size: 1.3rem;
+}
 tbody:nth-child(even) {
   background-color: rgba(128, 128, 128, 0.13);
 }
+/* Elements added by JS */
 #old_price {
   text-decoration: line-through;
   font-size: 1.2rem;
@@ -160,4 +164,14 @@ tbody:nth-child(even) {
 #new_price {
   font-size: 2rem;
   color: red;
+}
+@media (max-width: 600px) {
+  main {
+    width: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    width: 80%;
+  }
 }
