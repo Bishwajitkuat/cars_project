@@ -55,6 +55,7 @@ function renderSearchResult(car, licNum) {
   let html;
   // removing the last search result from the display
   searchResultOutput.innerHTML = "";
+  // if licence nuber found, a car object will be retured else car will be undefined
   if (car) {
     const discount = (
       ((Number(car.carPrice) - car.carOfferPrice) / Number(car.carPrice)) *
@@ -115,6 +116,7 @@ getAllData("http://localhost:3000/all");
 function addCar() {
   const newCar = makeCarObj();
   const postUrl = "http://localhost:3000/addNew";
+  // res will be alart to the user.
   sendNewData(postUrl, newCar).then((res) => alert(res.status));
 }
 
