@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
     <title>Car search</title>
   </head>
@@ -73,7 +74,12 @@
         <button id="search_btn">Search</button>
         <div class="searchResult">
           <h3>Result:</h3>
-          <p id="result_txt"></p>
+          <ul>
+            <li>Brand: <span id="carMaker"></span></li>
+            <li>Model: <span id="carModel"></span></li>
+            <li>Owner: <span id="carOwner"></span></li>
+            <li>Discounted price: <span id="carOfferPrice"></span> €</li>
+          </ul>
         </div>
       </section>
     </main>

@@ -107,6 +107,26 @@ button {
   gap: 2rem;
   max-height: min-content;
 }
+.searchResult {
+  border: 0.01rem solid gray;
+  border-radius: 3px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.searchResult ul {
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.searchResult li {
+  margin: 8px 0;
+}
+
+.searchResult span {
+  font-weight: bold;
+}
 tr {
   display: grid;
   grid-template-columns: repeat(6, 1fr);

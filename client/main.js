@@ -78,8 +78,17 @@ async function getCarbyKeyValue(url, key, value) {
   const response = await fetch(postUrl, { mode: "cors" });
   const data = await response.json();
   if (data.car) {
-    const txt = `Brand: ${data.car.carMaker}, Model: ${data.car.carModel}, Owner: ${data.car.carOwner}, Discounted price: ${data.car.carOfferPrice}`;
-    resultTxt.textContent = txt;
+    if (data.car) {
+      const carMaker = document.querySelector("#carMaker");
+      const carModel = document.querySelector("#carModel");
+      const carOwner = document.querySelector("#carOwner");
+      const carOfferPrice = document.querySelector("#carOfferPrice");
+    
+      carMaker.textContent = data.car.carMaker;
+      carModel.textContent = data.car.carModel;
+      carOwner.textContent = data.car.carOwner;
+      carOfferPrice.textContent = data.car.carOfferPrice;
+    }
   } else {
     resultTxt.textContent = "Did not find the car. Try again!!!!";
   }
