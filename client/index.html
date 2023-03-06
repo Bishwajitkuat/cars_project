@@ -4,85 +4,84 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
-    <title>Car search</title>
+    <title>Car Database Solutions</title>
   </head>
   <body>
-    <header>
-      <img src="img/logo.png" alt="icon" />
-      <h1>Car Database Solutions</h1>
-    </header>
-    <main>
-      <section class="input">
-        <h2 class="input_h2">Add car</h2>
-        <form class="input_form">
-          <div>
-            <label for="licence">Licence number</label>
-            <input type="text" placeholder="Licence number" id="licence" />
-          </div>
-          <div>
-            <label for="maker">Car maker</label>
-            <input type="text" id="maker" />
-          </div>
-          <div>
-            <label for="model">Car model</label>
-            <input type="text" id="model" />
-          </div>
-          <div>
-            <label for="owner">Car owner</label>
-            <input type="text" id="owner" />
-          </div>
-          <div>
-            <label for="price">Car price</label>
-            <input type="number" id="price" />
-          </div>
-          <div>
-            <label for="color">Car color</label>
-            <input type="text" id="color" />
-          </div>
-        </form>
-        <div class="input_btn">
-          <button id="add_car">Add car</button>
-          <button id="reset">Reset</button>
+    <div class="marWidth">
+      <header>
+        <img src="img/logo.png" alt="icon" />
+        <h1>Car Database Solutions</h1>
+      </header>
+      <main>
+        <div class="operation">
+          <section class="input">
+            <h2 class="input_h2">Add car</h2>
+            <form class="input_form">
+              <div>
+                <label for="licence">Licence number</label>
+                <input type="text" id="licence" />
+              </div>
+              <div>
+                <label for="maker">Car maker</label>
+                <input type="text" id="maker" />
+              </div>
+              <div>
+                <label for="model">Car model</label>
+                <input type="text" id="model" />
+              </div>
+              <div>
+                <label for="owner">Car owner</label>
+                <input type="text" id="owner" />
+              </div>
+              <div>
+                <label for="price">Car price</label>
+                <input type="number" id="price" />
+              </div>
+              <div>
+                <label for="color">Car color</label>
+                <input type="text" id="color" />
+              </div>
+            </form>
+            <div class="input_btn">
+              <button id="add_car">Add car</button>
+              <button id="reset">Reset</button>
+            </div>
+          </section>
+          <section class="search">
+            <h2>Licence search</h2>
+            <div class="searchInput">
+              <label for="searchLicence">Car licence</label>
+              <input
+                type="text"
+                placeholder="ABC-123"
+                value="ABC-123"
+                id="searchLicence"
+              />
+            </div>
+            <button id="search_btn">Search</button>
+            <div class="searchResult">
+              <h3>Result</h3>
+              <div class="searchResultOutput"></div>
+            </div>
+          </section>
         </div>
-      </section>
-      <section class="databases">
-        <h2>Cars database</h2>
-        <table>
-          <tr>
-            <th>Licence</th>
-            <th>Maker</th>
-            <th>Model</th>
-            <th>Owner</th>
-            <th>Price</th>
-            <th>Color</th>
-          </tr>
-        </table>
-      </section>
-      <section class="search">
-        <h2>Licence search</h2>
-        <div class="searchInput">
-          <label for="searchLicence">Car licence</label>
-          <input
-            type="text"
-            placeholder="ABC-123"
-            value="ABC-123"
-            id="searchLicence"
-          />
-        </div>
-        <button id="search_btn">Search</button>
-        <div class="searchResult">
-          <h3>Result:</h3>
-          <ul>
-            <li>Brand: <span id="carMaker"></span></li>
-            <li>Model: <span id="carModel"></span></li>
-            <li>Owner: <span id="carOwner"></span></li>
-            <li>Discounted price: <span id="carOfferPrice"></span> €</li>
-          </ul>
-        </div>
-      </section>
-    </main>
+        <section class="databases">
+          <h2>Cars database</h2>
+          <table>
+            <tr>
+              <th>Licence</th>
+              <th>Maker</th>
+              <th>Model</th>
+              <th>Owner</th>
+              <th>Price</th>
+              <th>Color</th>
+            </tr>
+          </table>
+        </section>
+      </main>
+    </div>
 
     <script src="main.js"></script>
   </body>

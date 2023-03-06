@@ -3,7 +3,7 @@ const form = document.querySelector("form");
 const reset = document.querySelector("#reset");
 const searchBtn = document.querySelector("#search_btn");
 const btnAddCar = document.querySelector("#add_car");
-const resultTxt = document.querySelector("#result_txt");
+const searchResultOutput = document.querySelector(".searchResultOutput");
 
 function Car(licence, maker, model, owner, price, color) {
   this.carLicence = licence;
@@ -51,18 +51,32 @@ function renderCar(car) {
   table.insertAdjacentHTML("beforeend", html);
 }
 
+function renderSearchResult(car, licNum) {
+  let html;
+  // removing the last search result from the display
+  searchResultOutput.innerHTML = "";
+  if (car) {
+    const discount = (
+      ((Number(car.carPrice) - car.carOfferPrice) / Number(car.carPrice)) *
+      100
+    ).toFixed(0);
+    html = `<ul>
+      <li>Brand: ${car.carMaker}</li>
+      <li>Model: ${car.carModel}</li>
+      <li>Owner: ${car.carOwner}</li>
+      <li>Old price: <span id ="old_price">${car.carPrice} €</span></li>
+      <li>New price: <span id ="new_price">${car.carOfferPrice} €</span></li>
+      <li>Discounte: ${discount} %</li>
+    </ul>`;
+  } else {
+    html = `<p>Car with licence number "${licNum} " does not exits in this database.</p>`;
+  }
+  searchResultOutput.insertAdjacentHTML("beforeend", html);
+}
+
 function getCarByLicence() {
   const licNum = document.querySelector("#searchLicence").value;
   getCarbyKeyValue("http://localhost:3000", "licence", licNum);
-  // for (const car of cars) {
-  //   if (car.carLicence === searchLicence) {
-  //     const txt = `Brand: ${car.carMaker}, Model: ${car.carModel}, Owner: ${car.carOwner}`;
-  //     resultTxt.textContent = txt;
-  //     return;
-  //   } else {
-  //     resultTxt.textContent = "Did not find the car. Try again!!!!";
-  //   }
-  // }
 }
 
 // fetch functions
@@ -77,21 +91,7 @@ async function getCarbyKeyValue(url, key, value) {
   const postUrl = `${url}/${key}/${value}`;
   const response = await fetch(postUrl, { mode: "cors" });
   const data = await response.json();
-  if (data.car) {
-    if (data.car) {
-      const carMaker = document.querySelector("#carMaker");
-      const carModel = document.querySelector("#carModel");
-      const carOwner = document.querySelector("#carOwner");
-      const carOfferPrice = document.querySelector("#carOfferPrice");
-    
-      carMaker.textContent = data.car.carMaker;
-      carModel.textContent = data.car.carModel;
-      carOwner.textContent = data.car.carOwner;
-      carOfferPrice.textContent = data.car.carOfferPrice;
-    }
-  } else {
-    resultTxt.textContent = "Did not find the car. Try again!!!!";
-  }
+  renderSearchResult(data.car, value);
 }
 // fetch post new car objects to server
 async function sendNewData(url = "", data = {}) {
@@ -114,9 +114,8 @@ getAllData("http://localhost:3000/all");
 // send new car object to server
 function addCar() {
   const newCar = makeCarObj();
-  console.log("inside addCar:", newCar);
   const postUrl = "http://localhost:3000/addNew";
-  sendNewData(postUrl, newCar).then((res) => console.log(res));
+  sendNewData(postUrl, newCar).then((res) => alert(res.status));
 }
 
 // Event listener and hander

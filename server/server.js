@@ -26,10 +26,17 @@ app.get("/licence/:licenceNum", (req, res) => {
 // POST REQUEST
 // receive new object add to corrent list and rewrite jsone file
 app.post("/addNew", (req, res) => {
-  allData.push(req.body);
-  console.log(req.body);
-  writeToJson("./cars.json", allData);
-  res.send({ status: "success" });
+  const licence = req.body.carLicence;
+  const alreadyExits = allData.filter((item) => item.carLicence === licence);
+  if (alreadyExits.length) {
+    res.send({
+      status: `Licence number ${licence} already exits in the database! New data has not been added!`,
+    });
+  } else {
+    allData.push(req.body);
+    writeToJson("./cars.json", allData);
+    res.send({ status: "Car data successfully stored in the database" });
+  }
 });
 
 //Listening

@@ -52,5 +52,41 @@
     "carPrice": "25000",
     "carColor": "Red",
     "carOfferPrice": 18750
+  },
+  {
+    "carLicence": "BBB-222",
+    "carMaker": "Huyndai",
+    "carModel": "Getz",
+    "carOwner": "Bisso",
+    "carPrice": "2000",
+    "carColor": "Green",
+    "carOfferPrice": 1800
+  },
+  {
+    "carLicence": "AAA-123",
+    "carMaker": "Toyota",
+    "carModel": "Yaris",
+    "carOwner": "Bisso",
+    "carPrice": "30000",
+    "carColor": "Red",
+    "carOfferPrice": 22500
+  },
+  {
+    "carLicence": "AAA-124",
+    "carMaker": "Volkswagen",
+    "carModel": "Polo",
+    "carOwner": "John",
+    "carPrice": "2800",
+    "carColor": "Black",
+    "carOfferPrice": 2520
+  },
+  {
+    "carLicence": "ABC-123",
+    "carMaker": "Volvo",
+    "carModel": "V-60",
+    "carOwner": "Markus",
+    "carPrice": "10000",
+    "carColor": "Black",
+    "carOfferPrice": 8500
   }
 ]
