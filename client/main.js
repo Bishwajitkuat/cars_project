@@ -5,8 +5,6 @@ const searchBtn = document.querySelector("#search_btn");
 const btnAddCar = document.querySelector("#add_car");
 const resultTxt = document.querySelector("#result_txt");
 
-// const cars = [];
-
 function Car(licence, maker, model, owner, price, color) {
   this.carLicence = licence;
   this.carMaker = maker;
@@ -14,6 +12,12 @@ function Car(licence, maker, model, owner, price, color) {
   this.carOwner = owner;
   this.carPrice = price;
   this.carColor = color;
+  this.discount = function () {
+    const price = Number(this.carPrice);
+    if (price > 20000) return price * 0.75;
+    else if (price < 5000) return price * 0.9;
+    else return price * 0.85;
+  };
 }
 
 function makeCarObj() {
@@ -31,7 +35,7 @@ function makeCarObj() {
     priceInput,
     colorInput
   );
-  console.log(newCar);
+  newCar["carOfferPrice"] = newCar.discount();
   return newCar;
 }
 function renderCar(car) {
@@ -74,7 +78,7 @@ async function getCarbyKeyValue(url, key, value) {
   const response = await fetch(postUrl, { mode: "cors" });
   const data = await response.json();
   if (data.car) {
-    const txt = `Brand: ${data.car.carMaker}, Model: ${data.car.carModel}, Owner: ${data.car.carOwner}`;
+    const txt = `Brand: ${data.car.carMaker}, Model: ${data.car.carModel}, Owner: ${data.car.carOwner}, Discounted price: ${data.car.carOfferPrice}`;
     resultTxt.textContent = txt;
   } else {
     resultTxt.textContent = "Did not find the car. Try again!!!!";

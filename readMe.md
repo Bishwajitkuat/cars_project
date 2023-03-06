@@ -1,4 +1,6 @@
-# Description
+# Cars project
+
+## Description
 
 This program can takes new car object input from user and send it to server. Server adds this new object(s) to the existing array into a json file. User can search for car by licence number. If the car exits, user gets related data.
 
@@ -19,6 +21,22 @@ This program can takes new car object input from user and send it to server. Ser
 node server.js
 ```
 
-### From the client folder run the live server from vs-code for index.html
+### From the client folder
+
+run the index.html in live server from vs-code
 
 ### Everything should be working fine now!
+
+## Technoligies used
+
+- HTML
+- CSS
+- JS
+- JSON
+- Nodejs
+- Express
+
+## Authors
+
+- Markus Heinilä
+- Bishwajit Das

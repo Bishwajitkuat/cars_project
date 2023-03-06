@@ -1,82 +1,56 @@
 [
   {
-    "carLicence": "ABC-123",
-    "carMaker": "Toyota",
-    "carModel": "Yaris",
-    "carOwner": "Bisso",
-    "carPrice": "2800",
-    "carColor": "Blue"
-  },
-  {
-    "carLicence": "NGL-361",
-    "carMaker": "Hyundai",
-    "carModel": "Getz",
-    "carOwner": "Bishwajit",
-    "carPrice": "1500",
-    "carColor": "Green"
-  },
-  {
-    "carLicence": "XYZ-987",
-    "carMaker": "BMW",
-    "carModel": "Sports",
-    "carOwner": "Markus",
-    "carPrice": "5000",
-    "carColor": "Blue"
-  },
-  {
-    "carLicence": "USZ-100",
-    "carMaker": "Skoda",
-    "carModel": "Octavia",
-    "carOwner": "Sani",
-    "carPrice": "5000",
-    "carColor": "Black"
-  },
-  {
-    "carLicence": "BSD-300",
+    "carLicence": "FHT-967",
     "carMaker": "Toyota",
     "carModel": "Corolla",
-    "carOwner": "Alex",
-    "carPrice": "4000",
-    "carColor": "White"
+    "carOwner": "Ilkka",
+    "carPrice": "40000",
+    "carColor": "Grey",
+    "carOfferPrice": 30000
   },
   {
-    "carLicence": "TRS-500",
-    "carMaker": "Hyundai",
-    "carModel": "i30",
-    "carOwner": "Mike",
-    "carPrice": "6050",
-    "carColor": "Red"
-  },
-  {
-    "carLicence": "BKS-999",
-    "carMaker": "Hyundai",
-    "carModel": "i20",
-    "carOwner": "John",
-    "carPrice": "3000",
-    "carColor": "Blue"
-  },
-  {
-    "carLicence": "UTR-777",
-    "carMaker": "Volkswagen",
+    "carLicence": "AAA-111",
+    "carMaker": "Wolkswagen",
     "carModel": "Polo",
-    "carOwner": "Smith",
-    "carPrice": "8000",
-    "carColor": "Black"
+    "carOwner": "Alex",
+    "carPrice": "15000",
+    "carColor": "Black",
+    "carOfferPrice": 12750
   },
   {
-    "carLicence": "QBG-333",
-    "carMaker": "Volkswagen",
-    "carModel": "Jetta",
-    "carOwner": "Krisna",
-    "carPrice": "10000",
-    "carColor": "Blue"
+    "carLicence": "NFT-999",
+    "carMaker": "Huyndai",
+    "carModel": "I-20",
+    "carOwner": "Shree",
+    "carPrice": "4000",
+    "carColor": "Red",
+    "carOfferPrice": 3600
   },
   {
-    "carLicence": "BNQ-222",
-    "carMaker": "Volkswagen",
-    "carModel": "Golf",
-    "carOwner": "Rita",
-    "carPrice": "9000",
-    "carColor": "Red"
+    "carLicence": "COR-432",
+    "carMaker": "Skoda",
+    "carModel": "Octavia",
+    "carOwner": "Mariia",
+    "carPrice": "12500",
+    "carColor": "Yellow",
+    "carOfferPrice": 10625
+  },
+  {
+    "carLicence": "POY-274",
+    "carMaker": "Mercedes-Benz",
+    "carModel": "Gamma",
+    "carOwner": "George",
+    "carPrice": "65000",
+    "carColor": "Black",
+    "carOfferPrice": 48750
+  },
+  {
+    "carLicence": "BMQ-311",
+    "carMaker": "Nissan",
+    "carModel": "Forest",
+    "carOwner": "Randy",
+    "carPrice": "25000",
+    "carColor": "Red",
+    "carOfferPrice": 18750
   }
 ]
