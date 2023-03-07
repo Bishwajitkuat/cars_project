@@ -57,17 +57,17 @@ function renderSearchResult(car, licNum) {
   searchResultOutput.innerHTML = "";
   // if licence nuber found, a car object will be retured else car will be undefined
   if (car) {
-    const discount = (
-      ((Number(car.carPrice) - car.carOfferPrice) / Number(car.carPrice)) *
-      100
-    ).toFixed(0);
+    const oldPrice = Number(car.carPrice);
+    const discountAmount = oldPrice - car.carOfferPrice;
+    const discount = ((discountAmount / oldPrice) * 100).toFixed(0);
     html = `<ul>
       <li>Brand: ${car.carMaker}</li>
       <li>Model: ${car.carModel}</li>
       <li>Owner: ${car.carOwner}</li>
-      <li>Old price: <span id ="old_price">${car.carPrice} €</span></li>
-      <li>New price: <span id ="new_price">${car.carOfferPrice} €</span></li>
-      <li>Discounte: ${discount} %</li>
+      <li>Old price: <span id ="old_price">${car.carPrice}€</span></li>
+      <li>New price: <span id ="new_price">${car.carOfferPrice}€</span></li>
+      <li>Discounte: ${discount}%</li>
+      <li>Discounte: ${discountAmount}€ </li>
     </ul>`;
   } else {
     html = `<p>Car with licence number "${licNum} " does not exits in this database.</p>`;
